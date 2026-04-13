@@ -8,7 +8,6 @@ const About = () => {
       className="py-20 md:py-28 px-5 md:px-6 bg-linear-to-br linear from-[#f0f4ff] via-[#f7fbff] to-[#fdf4ff]"
     >
       <div className="max-w-6xl mx-auto">
-
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,7 +26,6 @@ const About = () => {
 
         {/* MAIN CONTENT */}
         <div className="grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
-
           {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -40,14 +38,15 @@ const About = () => {
             </h3>
 
             <p className="mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-              I’m a Full Stack Web Developer specializing in MERN stack.
-              My focus is building scalable applications with clean architecture,
+              I’m a Full Stack Web Developer specializing in MERN stack. My
+              focus is building scalable applications with clean architecture,
               modern UI, and smooth user experience.
             </p>
 
             <p className="mt-3 md:mt-5 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
               I believe good design is not how it looks — it’s how it works.
-              Every project I build is focused on real-world usability and performance.
+              Every project I build is focused on real-world usability and
+              performance.
             </p>
           </motion.div>
 
@@ -58,18 +57,20 @@ const About = () => {
             viewport={{ once: true }}
           >
             <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-              My journey started with curiosity — exploring how websites work behind the scenes.
-              Over time, that curiosity turned into passion, and passion turned into profession.
+              My journey started with curiosity — exploring how websites work
+              behind the scenes. Over time, that curiosity turned into passion,
+              and passion turned into profession.
             </p>
 
             <p className="mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-              Today, I build full-stack applications that help businesses grow online.
-              From frontend interfaces to backend systems, I handle everything with attention to detail.
+              Today, I build full-stack applications that help businesses grow
+              online. From frontend interfaces to backend systems, I handle
+              everything with attention to detail.
             </p>
 
             <p className="mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-              My goal is simple: deliver clean, modern, and impactful digital experiences
-              that users actually enjoy using.
+              My goal is simple: deliver clean, modern, and impactful digital
+              experiences that users actually enjoy using.
             </p>
 
             {/* BADGE */}
@@ -77,7 +78,6 @@ const About = () => {
               Clean Code • Performance Focus • Modern UI • Real Impact
             </div>
           </motion.div>
-
         </div>
 
         {/* STATS */}
@@ -114,10 +114,10 @@ const About = () => {
             </p>
           </div>
         </motion.div>
-
       </div>
     </section>
   );
 };
 
 export default About;
+
