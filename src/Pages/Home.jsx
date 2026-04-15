@@ -11,7 +11,7 @@ import Testmonials from "../Components/Testmonials";
 
 const Home = () => {
     return (
-        <div>
+        <div className="overflow-hidden">
             <Navbar/>
             <Hero/>
             <About/>

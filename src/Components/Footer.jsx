@@ -25,7 +25,7 @@ const Footer = () => {
             </p>
 
             <p className="text-gray-500 mt-4 text-sm">
-              © 2026 All Rights Reserved
+              © 2026 All Rights Reserved by Md Fuad Amir
             </p>
           </div>
 

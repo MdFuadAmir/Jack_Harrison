@@ -100,7 +100,7 @@ const Contact = () => {
             <div className="bg-white/60 backdrop-blur-xl border border-white/30 rounded-2xl p-6 shadow-sm space-y-4">
               <div className="flex items-center gap-3 text-gray-700 text-sm md:text-base">
                 <MdEmail className="text-indigo-500 text-xl" />
-                <span>jackharrison.dev@email.com</span>
+                <span>mdfuadamir@email.com</span>
               </div>
 
               <div className="flex items-center gap-3 text-gray-700 text-sm md:text-base">

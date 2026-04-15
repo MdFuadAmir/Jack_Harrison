@@ -1,54 +1,58 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import image from "../assets/project.png"
+import image1 from "../../public/Images/project1.png";
+import image2 from "../../public/Images/project2.png";
+import image3 from "../../public/Images/project4.png";
+import image5 from "../../public/Images/project5.png";
+import image6 from "../../public/Images/project3.png";
 const Projects = () => {
   const projects = [
     {
       title: "Full Stack Portfolio Website",
       desc: "A modern and responsive full stack portfolio website built for personal branding with smooth UI, animations, and optimized performance.",
       tech: ["React", "Node", "MongoDB"],
-      img: image,
-      live: "#",
+      img: image1,
+      live: "https://md-fuad-amir.web.app",
       code: "#",
     },
     {
       title: "Digital Marketer Portfolio",
       desc: "A clean and minimal portfolio website for a digital marketer showcasing services, campaigns, and client results in a structured layout.",
       tech: ["React", "Tailwind", "Framer Motion"],
-      img: image,
-      live: "#",
+      img: image2,
+      live: "https://grace-wilson.vercel.app",
       code: "#",
     },
     {
       title: "UI/UX Designer Portfolio",
       desc: "A visually appealing UI/UX portfolio highlighting design skills, case studies, and creative interface concepts with modern aesthetics.",
       tech: ["React", "CSS", "Figma Integration"],
-      img: image,
-      live: "#",
+      img: image3,
+      live: "https://ella-thompson.vercel.app",
       code: "#",
     },
     {
       title: "Digital Marketing Landing Page",
       desc: "A high-converting landing page designed for digital marketing services with strong CTA sections and modern layout structure.",
-      tech: ["Next.js", "Tailwind", "SEO"],
-      img: image,
-      live: "#",
+      tech: ["React", "Tailwind", "SEO"],
+      img: image2,
+      live: "https://grace-wilson.vercel.app",
       code: "#",
     },
     {
       title: "Photography Portfolio Website",
       desc: "A stunning photography portfolio showcasing visual storytelling, image gallery system, and elegant fullscreen presentation layout.",
       tech: ["React", "Gallery UI", "Framer Motion"],
-      img: image,
-      live: "#",
+      img: image5,
+      live: "https://james-carter-ivory.vercel.app",
       code: "#",
     },
     {
       title: "Graphic Designer Portfolio",
       desc: "A creative graphic designer portfolio featuring branding works, posters, and visual identity projects with modern grid presentation.",
       tech: ["React", "Tailwind", "Design System"],
-      img: image,
-      live: "#",
+      img: image6,
+      live: "https://ryan-mitchell.vercel.app",
       code: "#",
     },
   ];
@@ -59,7 +63,6 @@ const Projects = () => {
       className="py-20 md:py-28 px-5 md:px-6 bg-linear-to-br linear from-[#f0f4ff] via-[#f7fbff] to-[#fdf4ff]"
     >
       <div className="max-w-6xl mx-auto">
-
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -83,7 +86,6 @@ const Projects = () => {
 
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -93,7 +95,6 @@ const Projects = () => {
               transition={{ delay: index * 0.1 }}
               className="group bg-white/60 backdrop-blur-xl rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition"
             >
-
               {/* IMAGE */}
               <div className="h-40 sm:h-44 md:h-48 overflow-hidden">
                 <img
@@ -105,7 +106,6 @@ const Projects = () => {
 
               {/* CONTENT */}
               <div className="p-4 sm:p-5 md:p-6">
-
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800">
                   {project.title}
                 </h3>
@@ -128,7 +128,6 @@ const Projects = () => {
 
                 {/* BUTTONS */}
                 <div className="flex gap-2 md:gap-3 mt-4 md:mt-6">
-
                   <a
                     href={project.live}
                     className="px-3 md:px-4 py-2 text-xs sm:text-sm rounded-full bg-linear-to-r from-indigo-400 to-purple-400 text-white shadow hover:shadow-md transition"
@@ -142,14 +141,10 @@ const Projects = () => {
                   >
                     Code
                   </a>
-
                 </div>
-
               </div>
-
             </motion.div>
           ))}
-
         </div>
 
         {/* FOOTER NOTE */}
@@ -162,7 +157,6 @@ const Projects = () => {
           More projects are continuously being developed to improve skills and
           explore new technologies.
         </motion.p>
-
       </div>
     </section>
   );

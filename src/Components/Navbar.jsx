@@ -6,6 +6,7 @@ import Logo from "../Utils/Logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState("Home");
 
   const navLinks = [
     { name: "Home", href: "#home" },
@@ -15,6 +16,11 @@ const Navbar = () => {
     { name: "Services", href: "#services" },
     { name: "Contact", href: "#contact" },
   ];
+
+  const handleClick = (link) => {
+    setActive(link.name);   // ✅ active set
+    setIsOpen(false);       // ✅ mobile menu close
+  };
 
   return (
     <nav className="fixed w-full top-0 left-0 z-50 backdrop-blur-xl bg-linear-to-r from-[#eef2ff]/80 via-[#f0f9ff]/80 to-[#fdf4ff]/80 shadow-sm">
@@ -28,10 +34,20 @@ const Navbar = () => {
             <a
               key={index}
               href={link.href}
-              className="text-gray-600 text-sm lg:text-base transition duration-300 hover:text-indigo-500 relative group"
+              onClick={() => handleClick(link)}
+              className={`text-gray-600 text-sm lg:text-base transition duration-300 hover:text-indigo-500 relative group ${
+                active === link.name
+                  ? "text-indigo-500"
+                  : "text-gray-600 hover:text-indigo-500"
+              }`}
             >
               {link.name}
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-indigo-400 transition-all duration-300 group-hover:w-full"></span>
+              
+              <span
+                className={`absolute left-0 -bottom-1 h-0.5 bg-indigo-400 transition-all duration-300 ${
+                  active === link.name ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              ></span>
             </a>
           ))}
         </div>

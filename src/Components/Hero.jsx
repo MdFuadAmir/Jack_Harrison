@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import jack from "../assets/jack.jpg";
+import jack from "../../public/Images/jack.png";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="flex items-center py-20 md:py-28 px-5 md:px-6 bg-linear-to-br from-[#eef2ff] via-[#f0f9ff] to-[#fdf4ff] min-h-screen"
+      className="flex items-center py-20 px-5 md:px-6 bg-linear-to-br from-[#eef2ff] via-[#f0f9ff] to-[#fdf4ff] md:min-h-screen"
     >
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* IMAGE (TOP ON MOBILE) */}
@@ -16,26 +16,12 @@ const Hero = () => {
           className="relative flex justify-center md:justify-end order-1 md:order-2"
         >
           <div className="absolute w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full bg-linear-to-tr from-indigo-300 via-purple-200 to-pink-200 blur-3xl opacity-70"></div>
-
-          {/* <div className="relative">
-            <img
-              src={jack}
-              alt="Jack Harrison"
-              className="w-56 h-56 md:w-88 md:h-88 object-cover rounded-full border-4 border-white shadow-lg"
-            />
-
-            <div className="absolute -bottom-5 -left-4 sm:-left-6 bg-white/70 backdrop-blur-xl p-3 rounded-xl shadow-md w-36 sm:w-44">
-              <p className="text-xs sm:text-sm text-gray-700 leading-snug">
-                Building scalable and visually stunning web solutions.
-              </p>
-            </div>
-          </div> */}
           <div className="relative flex justify-center items-center">
             {/* IMAGE */}
             <img
               src={jack}
               alt="Jack Harrison"
-              className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 object-cover object-center rounded-full border-4 border-white shadow-lg"
+              className="w-56 h-56 md:w-72 md:h-72 lg:w-96 lg:h-96 object-cover object-center rounded-full border-4 border-white shadow-lg"
             />
 
             {/* FLOATING CARD */}
@@ -110,7 +96,6 @@ const Hero = () => {
 
             <a
               href="https://docs.google.com/document/d/12K2cXFu7bpCguwRwaytDKMEsww5fUsbcZP4UmAU-N6E/export?format=pdf"
-              target="_blank"
               className="px-5 py-2.5 text-sm md:text-base rounded-full border border-indigo-300 text-indigo-500 hover:bg-indigo-50 transition"
             >
               Download CV
