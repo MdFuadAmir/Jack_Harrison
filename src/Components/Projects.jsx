@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { FaCode, FaExternalLinkAlt, FaRegFolderOpen } from "react-icons/fa";
-import { projectData } from "../assets/projectData";
+import { projectData } from "../assets/ProjectData";
 import { useNavigate } from "react-router";
 
 const container = {
