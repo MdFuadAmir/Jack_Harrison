@@ -11,7 +11,7 @@ import {
   FaLayerGroup,
 } from "react-icons/fa";
 
-import { projectData } from "../assets/projectData";
+import { projectData } from "../assets/ProjectData";
 
 const ProjectDetails = () => {
   const { id } = useParams();
