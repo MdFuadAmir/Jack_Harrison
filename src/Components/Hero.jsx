@@ -1,136 +1,216 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import jack from "../../public/Images/jack.png";
+import { FaReact, FaNodeJs, FaDatabase, FaCode } from "react-icons/fa";
+
+import jack from "../assets/owner.png";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 25 },
+  show: { opacity: 1, y: 0 },
+};
 
 const Hero = () => {
+  const contactMessage = `Hi Md Fuad Amir,
+
+I visited your portfolio website and would love to connect with you.
+
+I’d like to discuss a project / collaboration opportunity and learn more about your work.`;
+
+  const handleHire = (href, message = "") => {
+    const el = document.querySelector(href);
+
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+
+      if (href === "#contact" && message) {
+        setTimeout(() => {
+          const textarea = document.querySelector('textarea[name="message"]');
+
+          if (textarea) {
+            textarea.value = message;
+
+            textarea.dispatchEvent(new Event("input", { bubbles: true }));
+          }
+        }, 500);
+      }
+    }
+  };
   return (
     <section
       id="home"
-      className="flex items-center py-20 px-5 md:px-6 bg-linear-to-br from-[#eef2ff] via-[#f0f9ff] to-[#fdf4ff] md:min-h-screen"
+      className="py-24 md:py-28 md:h-screen relative flex items-center px-6 md:px-10
+      bg-[#f5f3ff] dark:bg-[#12081f]"
     >
-      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        {/* IMAGE (TOP ON MOBILE) */}
+      {/* BACKGROUND GLOW */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-125 h-125 bg-purple-400/20 blur-[120px] top-10 left-10"></div>
+        <div className="absolute w-100 h-100 bg-indigo-400/20 blur-[120px] bottom-10 right-10"></div>
+      </div>
+
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+      >
+        {/* IMAGE SECTION (TOP ON MOBILE) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="relative flex justify-center md:justify-end order-1 md:order-2"
+          className="relative flex justify-center order-1 md:order-2"
         >
-          <div className="absolute w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full bg-linear-to-tr from-indigo-300 via-purple-200 to-pink-200 blur-3xl opacity-70"></div>
-          <div className="relative flex justify-center items-center">
-            {/* IMAGE */}
+          {/* SHAPE BACKGROUND */}
+          <div
+            className="absolute w-90 h-90
+            bg-linear-to-tr from-purple-500/30 via-indigo-400/30 to-transparent
+            blur-2xl rotate-45 rounded-[40%_60%_60%_40%/40%_40%_60%_60%]"
+          ></div>
+
+          {/* IMAGE CARD */}
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity }}
+            className="relative p-3 bg-white/60 dark:bg-white/10
+            backdrop-blur-xl shadow-xl
+            rounded-[300px_100px_170px_170px] max-w-90"
+          >
             <img
               src={jack}
               alt="Jack Harrison"
-              className="w-56 h-56 md:w-72 md:h-72 lg:w-96 lg:h-96 object-cover object-center rounded-full border-4 border-white shadow-lg"
+              className="w-full h-full
+              object-cover rounded-[300px_100px_170px_170px]"
             />
-
-            {/* FLOATING CARD */}
-            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:-left-6 bg-white/80 backdrop-blur-xl p-3 sm:p-4 rounded-xl shadow-md w-40 sm:w-44">
-              <p className="text-xs sm:text-sm text-gray-700 leading-snug text-center sm:text-left">
-                Building scalable and visually stunning web solutions.
-              </p>
-            </div>
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* TEXT */}
-        <div className="order-2 md:order-1 text-center md:text-left">
-          {/* TAGLINE */}
+        {/* TEXT SECTION (BOTTOM ON MOBILE) */}
+        <div className="text-center md:text-left order-2 md:order-1">
+          {/* TAGLINE WITH ICON */}
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-indigo-500 text-xs sm:text-sm md:text-base tracking-wide mb-2"
+            variants={item}
+            className="flex items-center justify-center md:justify-start gap-2
+            text-xs md:text-sm tracking-widest text-purple-600 dark:text-purple-300"
           >
-            Crafting Modern Web Experiences
+            <motion.span
+              animate={{ rotate: 360 }}
+              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              className="text-purple-500"
+            >
+              <FaCode />
+            </motion.span>
+            FULL STACK MERN DEVELOPER
           </motion.p>
 
           {/* NAME */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight"
+            variants={item}
+            className="text-3xl sm:text-4xl md:text-6xl font-bold
+            text-gray-800 dark:text-white mt-2
+            transition duration-300 hover:text-purple-600 dark:hover:text-purple-300"
           >
             Jack Harrison
           </motion.h1>
 
           {/* ROLE */}
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-base sm:text-lg md:text-xl text-gray-600 mt-2"
+            variants={item}
+            className="text-base sm:text-lg md:text-2xl
+            text-gray-600 dark:text-purple-200 mt-3
+            hover:text-purple-600 dark:hover:text-purple-300 transition"
           >
-            Full Stack Web Developer (MERN)
+            I build scalable & modern SaaS web apps
           </motion.h2>
 
           {/* DESCRIPTION */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-4 md:mt-5 space-y-2 text-gray-600"
+          <motion.p
+            variants={item}
+            className="mt-5 text-gray-600 dark:text-gray-300 leading-relaxed"
           >
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed">
-              I design and develop high-performance web applications.
-            </p>
+            Specialized in MERN stack development with focus on performance,
+            clean architecture and modern UI/UX systems.
+          </motion.p>
 
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed">
-              Focused on scalability, clean architecture, and user experience.
-            </p>
-
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed">
-              Helping businesses turn ideas into impactful digital products.
-            </p>
+          {/* TECH ICONS */}
+          <motion.div
+            variants={item}
+            className="flex gap-5 mt-6 justify-center md:justify-start"
+          >
+            {[FaReact, FaNodeJs, FaDatabase, FaCode].map((Icon, i) => (
+              <motion.div
+                key={i}
+                animate={{ y: [0, -8, 0] }}
+                transition={{
+                  duration: 2 + i * 0.3,
+                  repeat: Infinity,
+                }}
+                className="p-3 rounded-xl
+                bg-white/60 dark:bg-white/10
+                text-purple-600 dark:text-purple-300
+                shadow-sm hover:scale-110 transition"
+              >
+                <Icon size={22} />
+              </motion.div>
+            ))}
           </motion.div>
 
           {/* BUTTONS */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-6 md:mt-8 flex flex-wrap justify-center md:justify-start gap-3"
+            variants={item}
+            className="flex flex-wrap gap-4 mt-8 justify-center md:justify-start"
           >
             <a
-              href="mailto:mdfuadamir@gmail.com?subject=Project Inquiry"
-              className="px-5 py-2.5 text-sm md:text-base rounded-full bg-linear-to-r from-indigo-400 to-purple-400 text-white shadow-md hover:shadow-lg transition"
+              href="#contact"
+              onClick={() => handleHire("#contact", contactMessage)}
+              className="px-6 py-3 rounded-full
+  bg-purple-600 hover:bg-purple-700
+  text-white shadow-md transition"
             >
               Contact Me
             </a>
 
             <a
-              href="https://docs.google.com/document/d/12K2cXFu7bpCguwRwaytDKMEsww5fUsbcZP4UmAU-N6E/export?format=pdf"
-              className="px-5 py-2.5 text-sm md:text-base rounded-full border border-indigo-300 text-indigo-500 hover:bg-indigo-50 transition"
+              href="#projects"
+              className="px-6 py-3 rounded-full
+              border border-purple-400 text-purple-600
+              dark:text-purple-300
+              hover:bg-purple-100/40 dark:hover:bg-white/10 transition"
             >
-              Download CV
+              View Projects
             </a>
           </motion.div>
 
           {/* STATS */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-6 md:mt-8 grid grid-cols-3 gap-3 md:gap-5"
-          >
-            <div className="bg-white/60 backdrop-blur-lg rounded-xl p-3 text-center shadow-sm">
-              <h3 className="text-lg md:text-xl font-bold text-indigo-500">
-                20+
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600">Projects</p>
-            </div>
-
-            <div className="bg-white/60 backdrop-blur-lg rounded-xl p-3 text-center shadow-sm">
-              <h3 className="text-lg md:text-xl font-bold text-indigo-500">
-                15+
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600">Clients</p>
-            </div>
-
-            <div className="bg-white/60 backdrop-blur-lg rounded-xl p-3 text-center shadow-sm">
-              <h3 className="text-lg md:text-xl font-bold text-indigo-500">
-                2+
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600">Experience</p>
-            </div>
+          <motion.div variants={item} className="grid grid-cols-3 gap-4 mt-10">
+            {[
+              { num: "20+", label: "Projects" },
+              { num: "10+", label: "Clients" },
+              { num: "2+", label: "Years Exp" },
+            ].map((s, i) => (
+              <div
+                key={i}
+                className="text-center p-3 rounded-xl
+                bg-white/50 dark:bg-white/10 backdrop-blur-lg
+                hover:scale-105 transition"
+              >
+                <h3 className="text-xl font-bold text-purple-600 dark:text-purple-300">
+                  {s.num}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  {s.label}
+                </p>
+              </div>
+            ))}
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
