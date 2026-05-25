@@ -12,11 +12,17 @@ import {
 } from "react-icons/fa";
 
 import { projectData } from "../assets/ProjectData";
+import { useEffect } from "react";
+import SEO from "../Utils/SEO";
 
 const ProjectDetails = () => {
   const { id } = useParams();
 
   const project = projectData.find((item) => item.id === parseInt(id));
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [id]);
 
   if (!project) {
     return (
@@ -36,6 +42,13 @@ const ProjectDetails = () => {
       className="min-h-screen py-24 px-6 md:px-10
       bg-[#f5f3ff] dark:bg-[#12081f] relative overflow-hidden"
     >
+      <SEO
+        title={`${project.title} | Jack Harrison`}
+        description={`${project.description.slice(
+          0,
+          150,
+        )} Modern full stack web development project built with scalable technologies, responsive UI, and high-performance architecture.`}
+      />
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-120 h-120 bg-purple-500/10 blur-[120px] top-10 left-10"></div>
@@ -45,7 +58,7 @@ const ProjectDetails = () => {
       <div className="relative max-w-6xl mx-auto">
         {/* BACK BUTTON */}
         <Link
-          to="/"
+          to={-1}
           className="inline-flex items-center gap-2 mb-10
           text-purple-600 dark:text-purple-300
           hover:translate-x-1 transition"

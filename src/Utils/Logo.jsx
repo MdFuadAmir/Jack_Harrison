@@ -27,7 +27,6 @@ const Logo = () => {
 
       {/* TYPOGRAPHY TEXT */}
       <h1 className="text-lg md:text-xl font-black tracking-wider text-gray-900 dark:text-white uppercase transition duration-300">
-        Jack
         <span className="text-purple-600 dark:text-purple-400 font-medium group-hover:text-purple-500 transition duration-300">
           .Harrison
         </span>
